@@ -28,8 +28,10 @@ scheduler.start()
 def index():
     return f"""
       <link rel="stylesheet" type="text/css" href="/static/style.css">
-      <h1>Relative SATS benchmarks (updated every hour)</h1>
+      <body>
+      <div><h1>Relative SATS benchmarks (updated every hour)</h1>
       <p>For people interested in spending their BTC</p>
+      <span class="large-number">$1 = {format(int(db['usd']), ',')}</span> SATS
       <ul class="list-unstyled">
         <li><span class="large-number">{format(int(db['usd']) * 15, ',')}</span> 
         SATS = 🍔 ($15 meal)</li>
@@ -44,6 +46,7 @@ def index():
         <li><span class="large-number">{format(int(db['usd']) * 3500, ',')}</span> 
         SATS = 💍 ($3,500 wedding ring)</li>
       </ul>
+      </div></body>
       """
 
 fetch_data()
